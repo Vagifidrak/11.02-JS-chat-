@@ -45,6 +45,11 @@
         color: white;
         border-radius: 10px;
         float: left; }
+      #chat main .message.users {
+        background-color: grey;
+        color: white;
+        border-radius: 10px;
+        float: right; }
       #chat main .message .times {
         position: absolute;
         top: 100%;

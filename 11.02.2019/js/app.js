@@ -15,19 +15,22 @@ chatText.addEventListener('keyup', function (e) {
         let text = this.value.trim()
 
         if(chatText.value !=0){
-            if(text[0].toUpperCase()==text[0])
-            AddMessage('support',text)
+            if(text[0].toUpperCase()==text[0]){
+                AddMessage('support',text)
+
+            }
+            else{
+                AddMessage('users', text)
+            }
         }
-        else{
-            AddMessage('users', text)
-        }
+        
     }
 })
-function AddMessage(classname,text){
+function AddMessage(classname, yasin){
     let div = document.createElement('div');
     div.className = 'message '+ classname
     let ptext = document.createElement('p')
-    ptext.innerText = text;
+    ptext.innerText = yasin;
     let now = new Date();
     let ptime = document.createElement('p')
     ptime.className = 'times'
