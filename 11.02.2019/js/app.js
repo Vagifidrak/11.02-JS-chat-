@@ -1,10 +1,40 @@
-const chat=document.getElementById('chat')
-const iconClose=document.querySelector('iconClose')
-const chatMini=document.getElementById('chat-mini')
+const chatMini = document.getElementById('chat-mini')
+const chat = document.getElementById('chat')
+const icoClose = document.querySelector(".upperAwesom")
+const chatText = document.getElementById('chat-input')
 
-chatMini.addEventListener('click',function(){
+chatMini.addEventListener("click", function () {
     chat.classList.remove('active')
 })
-iconClose.addEventListener('click',function(){
+icoClose.addEventListener("click", function () {
     chat.classList.add('active')
 })
+chatText.addEventListener('keyup', function (e) {
+
+    if(e.keyCode == 13) {
+        let text = this.value.trim()
+
+        if(chatText.value !=0){
+            if(text[0].toUpperCase()==text[0])
+            AddMessage('support',text)
+        }
+        else{
+            AddMessage('users', text)
+        }
+    }
+})
+function AddMessage(classname,text){
+    let div = document.createElement('div');
+    div.className = 'message '+ classname
+    let ptext = document.createElement('p')
+    ptext.innerText = text;
+    let now = new Date();
+    let ptime = document.createElement('p')
+    ptime.className = 'times'
+    ptime.innerText = now.getHours() + ':' + now.getMinutes()
+    div.appendChild(ptext)
+    div.appendChild(ptime)
+    document.querySelector('main').appendChild(div)
+    chatText.value = ''
+    div.scrollIntoView()
+}
